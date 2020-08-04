@@ -34,5 +34,11 @@ public class DataLoader implements ApplicationRunner {
 
         File file1 = new File("system", "java", 100, folder1);
         fileRepository.save(file1);
+
+        user1.addFolder(folder1);
+        userRepository.save(user1);
+
+        folder1.addFile(file1);
+        folderRepository.save(folder1);
     }
 }
