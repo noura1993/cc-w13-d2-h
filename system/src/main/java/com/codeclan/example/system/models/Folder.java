@@ -23,6 +23,8 @@ public class Folder {
     @JsonIgnoreProperties({"folders"})
     private User user;
 
+    @OneToMany(mappedBy = "folder", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"folder"})
     private List<File> files;
 
     public Folder(String title, User user) {
@@ -63,5 +65,9 @@ public class Folder {
 
     public void setFiles(List<File> files) {
         this.files = files;
+    }
+
+    public void addFile(File file) {
+        this.files.add(file);
     }
 }
